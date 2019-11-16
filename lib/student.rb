@@ -47,14 +47,12 @@ class Student
     if self.id
       self.update
     else
-    sql = <<-SQL
-      INSERT INTO students (name, grade)
-      VALUES (?, ?)
-    SQL
-    
-    self.db_connect(sql, self.name, self.grade)
-    
+      sql = <<-SQL
+        INSERT INTO students (name, grade)
+        VALUES (?, ?)
+      SQL
+      self.db_connect(sql, self.name, self.grade)
+    end
   end
-  
   
 end
