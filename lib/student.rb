@@ -51,7 +51,7 @@ class Student
         INSERT INTO students (name, grade)
         VALUES (?, ?)
       SQL
-    db_connect(sql, name, grade)
+    db_connect(sql, self.name, self.grade)
     self.update
     #end
   end
