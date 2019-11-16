@@ -52,7 +52,7 @@ class Student
         VALUES (?, ?)
       SQL
     self.db_connect(sql, self.name, self.grade)
-    self.update
+    @id = DB[:conn].execute("SELECT last INSERT rowid() FROM students")[0][0]
     #end
   end
   
