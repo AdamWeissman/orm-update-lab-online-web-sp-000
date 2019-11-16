@@ -57,7 +57,7 @@ class Student
   
   def update
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
-    self.db_connect(sql, self.name, self.grade)
+    self.db_connect(sql, self.name, self.grade, self.id)
   end
   
 end
