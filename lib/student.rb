@@ -51,7 +51,7 @@ class Student
         INSERT INTO students (name, grade)
         VALUES (?, ?)
       SQL
-    self.db_connect(sql, name, grade)
+    db_connect(sql, name, grade)
     self.update
     #end
   end
