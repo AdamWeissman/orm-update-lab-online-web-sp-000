@@ -23,8 +23,12 @@ class Student
     self.db_connect(sql)
   end
 
-  def self.db_connect(sql, name_arg_maybe=0, grade_arg_maybe=0)
-    if (name_arg_maybe == 0) && (grade_arg_maybe == 0)
+  def self.nothing
+    puts "yep, nothing"
+  end
+
+  def self.db_connect(sql, name_arg_maybe=self.nothing, grade_arg_maybe=self.nothing)
+    if (name_arg_maybe == self.nothing) && (grade_arg_maybe == self.nothing)
       DB[:conn].execute(sql)
     else
       DB[:conn].execute(sql, self.name, self.grade)
