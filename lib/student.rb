@@ -61,6 +61,29 @@ class Student
   def update
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.grade, self.id)   
+  end  
+    
+  def self.create(name, grade)
+    student = Student.new(name, grade)
+    student.save
   end
+  
+  def self.new_from_db(row)
+  	new_student = self.new(row[1],row[2],row[0])  
+  end
+  
+  def self.find_by_name(name)
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE name = ?
+      LIMIT 1
+    SQL
+ 
+    DB[:conn].execute(sql, name).map do |row|
+      self.new_from_db(row)
+    end.first
+  end
+    
   
 end
