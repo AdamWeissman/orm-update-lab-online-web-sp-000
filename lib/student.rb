@@ -40,7 +40,7 @@ class Student
     sql = <<-SQL
       DROP TABLE students
     SQL
-  self.db_connect(sql, self.name, self.grade)
+  self.db_connect(sql)
   end
   
   def save
@@ -51,7 +51,9 @@ class Student
       INSERT INTO students (name, grade)
       VALUES (?, ?)
     SQL
-    end
+    
+    self.db_connect(sql, self.name, self.grade)
+    
   end
   
   
