@@ -51,7 +51,7 @@ class Student
         INSERT INTO students (name, grade)
         VALUES (?, ?)
       SQL
-      db_connect(sql, name, grade)
+      Student.db_connect(sql, name, grade)
     end
   end
   
