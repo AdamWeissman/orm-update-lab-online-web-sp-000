@@ -24,7 +24,7 @@ class Student
   end
 
   def self.nothing
-    puts "yep, nothing"
+    nil
   end
 
   def self.db_connect(sql, name_arg_maybe=self.nothing, grade_arg_maybe=self.nothing)
